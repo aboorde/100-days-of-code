@@ -1,0 +1,17 @@
+{
+  "name": "bar-chart",
+  "version": "1.0.0",
+  "description": "",
+  "main": "bar.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "webpack --config webpack.config.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+  },
+  "devDependencies": {
+    "webpack": "^2.2.0"
+  }
+}
