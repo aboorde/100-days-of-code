@@ -35,7 +35,7 @@ var svg = d3.select("body").append("svg")
           "translate(" + margin.left + "," + margin.top + ")");
 
 // Get the data
-d3.json("GDP-data.json", function(error, data) {
+d3.json("https://raw.githubusercontent.com/FreeCodeCamp/ProjectReferenceData/master/GDP-data.json", function(error, data) {
     if (error) throw error;
     var chartData = data.data;
 
