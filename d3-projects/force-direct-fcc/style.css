@@ -1,0 +1,45 @@
+.line {
+  fill: none;
+  stroke: steelblue;
+  stroke-width: 2px;
+}
+div.tooltip {
+  position: absolute;
+  text-align: center;
+  width: 300px;
+  height: 80px;
+  padding: 2px;
+  font: 12px sans-serif;
+  background: navajowhite;
+  border: 0px;
+  border-radius: 8px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: 600;
+}
+rect.bar { fill: indianred; }
+rect.bar:hover {
+  fill: lightcoral;
+}
+
+.no-line path {
+  display: none;
+}
+
+.links line {
+  stroke: #999;
+  stroke-opacity: 0.6;
+}
+
+.nodes circle {
+  stroke: #fff;
+  stroke-width: 1.5px;
+}
+
+.flag {
+    display: inline-block;
+    width: 18px;
+    height: 12px;
+    background: url('flags.png') no-repeat;
+}
