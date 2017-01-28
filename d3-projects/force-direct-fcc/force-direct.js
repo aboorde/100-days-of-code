@@ -25,7 +25,6 @@ var simulation = d3.forceSimulation()
 
 d3.json("https://raw.githubusercontent.com/DealPete/forceDirected/master/countries.json", function(error, data) {
     if (error) throw error;
-//    console.log(data);
 
     data.links.forEach(function(el) {
         el.source = data.nodes[el.source].country;
@@ -44,14 +43,10 @@ d3.json("https://raw.githubusercontent.com/DealPete/forceDirected/master/countri
     //append nodes
     var node = svg.append("g")
         .attr("class", "nodes")
-        .selectAll("circle")
+        .selectAll(".node")
         .data(data.nodes)
-        .enter().append("circle")
-        .attr("r", 5)
-        .attr("fill", "crimson")
-        //.attr("xlink:href", "Transparent.gif")
-        //.attr("src", "Transparent.gif")
-        //.attr("class", function(d) { return "flag flag-" + d.code; })
+        .enter().append("g")
+        .attr("class", "node")
         .call(d3.drag()
             .on("start", dragstarted)
             .on("drag", dragged)
@@ -59,6 +54,13 @@ d3.json("https://raw.githubusercontent.com/DealPete/forceDirected/master/countri
         
     node.append("title")
         .text(function(d) { return d.country; });
+
+    node.append("image")
+        .attr("xlink:href", function(d) { return "https://rawgit.com/hjnilsson/country-flags/master/svg/" + d.code + ".svg"})
+        .attr("x", "0")
+        .attr("y", "0")
+        .attr("width", 16)
+        .attr("height", 10);
 
     simulation
         .nodes(data.nodes)
@@ -73,10 +75,10 @@ d3.json("https://raw.githubusercontent.com/DealPete/forceDirected/master/countri
             .attr("y1", function(d) { return d.source.y / 2; })
             .attr("x2", function(d) { return d.target.x / 2; })
             .attr("y2", function(d) { return d.target.y / 2; });
-        
+            
         node
-            .attr("cx", function(d) { return d.x / 2; })
-            .attr("cy", function(d) { return d.y / 2; });
+            .attr("transform", function(d) { return "translate(" + d.x/2 + "," + d.y/2 + ")"; });
+
     }
     
 });
