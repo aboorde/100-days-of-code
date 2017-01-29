@@ -70,7 +70,7 @@ function ready(err, world, meteorite) {
             div.transition()
                 .duration(200)
                 .style("opacity", 0.9);
-            div.html(d.properties.name + "<br/>" + d.properties.mass)
+            div.html("Name: " + d.properties.name + "<br/>" + "Mass: " + d.properties.mass + "<br/>" + "Class: " + d.properties.recclass)
                 .style("left", 1010 + "px")
                 .style("top", 25 + "px");
         })
